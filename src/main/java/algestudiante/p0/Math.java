@@ -11,7 +11,7 @@ public class Math {
 	 * @param b The second integer number to be added
 	 * @return The calculation of a+b
 	 */
-	public int sum(int a, int b) {
-		return a + b ;
+	public int sum(int a, int b) { 
+		return a + b +1 ;
 	}
 }
