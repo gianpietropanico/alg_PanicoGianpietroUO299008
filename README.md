@@ -1,12 +1,12 @@
-# alg_PerezJuanRamonUO22223
+# alg_PanicoGianpietroUO299008
 Repositorio para la asignatura de Algoritmia en el Grado de Ingeniería Informática del Software de la Universidad de Oviedo
 
 ## Información
-**Estudiante**: Juan Ramón Pérez Pérez
+**Estudiante**: Gianpietro Panico
 
-**Correo**: jrpp@uniovi.es
+**Correo**: UO299008@uniovi.es
 
-**Curso**: 2020-2021
+**Curso**: 2022-2023
 
-**URL del repositorio**: https://github.com/juanrperez/alg_PerezJuanRamonUO22223
+**URL del repositorio**: https://github.com/gianpietropanico/alg_PanicoGianpietroUO299008
 
