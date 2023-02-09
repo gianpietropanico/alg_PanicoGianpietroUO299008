@@ -95,4 +95,49 @@ public class MatrizOperaciones {
 		}
 	}
 
+	public int sumarDiagonal1() {
+		int sum = 0;
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < matrix.length; j++) {
+				if (i == j)
+					sum += matrix[i][j];
+			}
+		}
+		return sum;
+	}
+
+	public int sumarDiagonal2() {
+		int sum = 0;
+		for (int i = 0; i < matrix.length; i++) {
+			sum += matrix[i][i];
+		}
+		return sum;
+	}
+
+	public void recorrerCamino(int i, int j) {
+
+		while (matrix[i][j] != -1 ) {
+			switch (matrix[i][j]) {
+			case 1:
+				matrix[i][j] = -1;
+				i = i - 1;
+				break;
+			case 2:
+				matrix[i][j] = -1;
+				j = j + 1;
+				break;
+
+			case 3:
+				matrix[i][j] = -1;
+				i = i + 1;
+				break;
+
+			case 4:
+				matrix[i][j] = -1;
+				j = j - 1;
+				break;
+			}
+	}
+	}
+
 }
