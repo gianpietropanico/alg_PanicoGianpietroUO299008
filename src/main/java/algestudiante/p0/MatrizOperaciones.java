@@ -117,14 +117,14 @@ public class MatrizOperaciones {
 	public void recorrerCamino(int i, int j) {
 
 		 //check if the matrix has values between 1 and 4
-//		for (int x = 0; x < matrix.length; x++) {
-//			for (int y = 0; y < matrix.length; y++) {
-//				if (matrix[x][y] < 1 || matrix[x][y] > 4) {
-//					System.out.println("the matrix must have numbers between 1 and 4");
-//					return;
-//				}
-//			}
-//		}
+		for (int x = 0; x < matrix.length; x++) {
+			for (int y = 0; y < matrix.length; y++) {
+				if (matrix[x][y] < 1 || matrix[x][y] > 4) {
+					System.out.println("the matrix must have numbers between 1 and 4");
+					return;
+				}
+			}
+		}
 
 		while (matrix[i][j] != -1) {
 			switch (matrix[i][j]) {
