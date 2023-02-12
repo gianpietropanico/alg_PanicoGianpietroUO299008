@@ -116,12 +116,24 @@ public class MatrizOperaciones {
 
 	public void recorrerCamino(int i, int j) {
 
-		while (matrix[i][j] != -1 ) {
+		 //check if the matrix has values between 1 and 4
+//		for (int x = 0; x < matrix.length; x++) {
+//			for (int y = 0; y < matrix.length; y++) {
+//				if (matrix[x][y] < 1 || matrix[x][y] > 4) {
+//					System.out.println("the matrix must have numbers between 1 and 4");
+//					return;
+//				}
+//			}
+//		}
+
+		while (matrix[i][j] != -1) {
 			switch (matrix[i][j]) {
+
 			case 1:
 				matrix[i][j] = -1;
 				i = i - 1;
 				break;
+
 			case 2:
 				matrix[i][j] = -1;
 				j = j + 1;
@@ -136,8 +148,16 @@ public class MatrizOperaciones {
 				matrix[i][j] = -1;
 				j = j - 1;
 				break;
-			}
-	}
-	}
+				
+				default: System.out.println("error");
+				return;
 
+			}
+			if (i < 0 || j > matrix.length || j < 0 || i > matrix.length) {
+				return;
+			}
+		}
+		
+
+	}
 }
