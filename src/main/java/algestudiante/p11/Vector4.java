@@ -18,6 +18,7 @@ import java.util.Random; //es la clase que genera números aleatorios
 /** Esta clase permite trabajar con vectores */
 public class Vector4 {
 	static int[] v;
+	static int [] m;
 
 	public static void main(String arg[]) {
 		// int n= Integer.parseInt(arg[0]); //tamaño del problema leido de línea de
@@ -25,10 +26,10 @@ public class Vector4 {
 		// int n = 100000000;
 		long t1, t2;
 		int s;
-		int limite= 1000;
+		int limite= 100000;
 
 		System.out.println("n\tt");
-		for (int n = 10; n < 100000000; n *= 2) {
+		for (int n = 10; n < 1000000; n *= 3) {
 			v = new int[n];
 
 			Vector1.rellena(v);
@@ -37,6 +38,26 @@ public class Vector4 {
 			t1 = System.currentTimeMillis();
 			for (int repeticiones = 0; repeticiones < limite; repeticiones++)
 				s = Vector1.suma(v);
+			t2 = System.currentTimeMillis();
+
+			System.out.println(n + "\t" + +(t2 - t1));
+
+		}
+		
+		System.out.println();
+		System.out.println("ora il massimo ");
+		System.out.println();
+		
+		int [] m = new int [2];
+		for (int n = 10; n < 1000000; n *= 3) {
+			v = new int[n];
+
+			Vector1.rellena(v);
+			// Vector1.escribe (v);
+
+			t1 = System.currentTimeMillis();
+			for (int repeticiones = 0; repeticiones < limite; repeticiones++)
+			 Vector1.maximo(v,m);
 			t2 = System.currentTimeMillis();
 
 			System.out.println(n + "\t" + +(t2 - t1));

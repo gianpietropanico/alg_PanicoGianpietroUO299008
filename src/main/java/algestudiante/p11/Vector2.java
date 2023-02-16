@@ -23,7 +23,7 @@ public class Vector2
 	public static void main (String arg [] )
 	{
 	//	int n= Integer.parseInt(arg[0]);  //tamaño del problema leido de línea de comandos
-		int n = 100000000;
+		int n = 170000000;
 		long t1,t2;
 		v = new int [n] ;
 
@@ -36,7 +36,7 @@ public class Vector2
 		
 		System.out.println("Tiempo: "+(t2-t1));
 		
-		//System.out.println ("Suma de los elementos del vector = "+ s);
+		System.out.println ("Suma de los elementos del vector = "+ s);
 
 		
 

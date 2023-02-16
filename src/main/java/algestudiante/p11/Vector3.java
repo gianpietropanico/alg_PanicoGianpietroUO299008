@@ -28,7 +28,7 @@ public class Vector3
 		
 		
 		System.out.println("n\tt");
-		for(int n = 10;n<100000000;n*=2) {
+		for(int n = 10;n<100000000;n*=5) {
 			v = new int [n] ;
 
 			Vector1.rellena (v);
