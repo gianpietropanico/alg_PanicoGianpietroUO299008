@@ -26,7 +26,7 @@ public class Vector4 {
 		// int n = 100000000;
 		long t1, t2;
 		int s;
-		int limite= 100000;
+		int limite= 10000000;
 
 		System.out.println("n\tt");
 		for (int n = 10; n < 1000000; n *= 3) {
