@@ -1,6 +1,5 @@
 package algestudiante.p0;
 
-import algestudiante.p11.Vector1;
 
 public class MatrixOperacionesTiempos {
 
