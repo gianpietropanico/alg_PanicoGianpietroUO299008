@@ -13,7 +13,7 @@ public class Bucle1 {
 
 	public static void main(String arg[]) {
 		long t1, t2;
-		int limite = Integer.parseInt(arg[0]);
+		int limite = 10000000;
 
 		System.out.println("n\ttiempo\tcontador");
 		for (int n = 8; n <= 100000; n *= 2) {

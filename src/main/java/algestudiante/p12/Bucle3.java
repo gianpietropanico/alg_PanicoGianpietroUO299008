@@ -2,7 +2,7 @@
 
 public class Bucle3 {
 
-	public static long bucle3(int n)
+	public static long bucle3(int n) //O(n^2)
 	{
 		long cont = 0;
 		for (int i = 1; i <= n; i++)
@@ -15,9 +15,10 @@ public class Bucle3 {
 	public static void main(String arg[]) {
 		long c = 0;
 		long t1, t2;
-		int limite = Integer.parseInt(arg[0]);
+		int limite = 100000;
+		System.out.println("n\ttiempo\tcontador");
 
-		for (int n = 128; n <= 100000; n *= 2) {
+		for (int n = 8; n <= 100000; n *= 2) {
 			t1 = System.currentTimeMillis();
 
 			for (int repeticiones = 1; repeticiones <= limite; repeticiones++) {

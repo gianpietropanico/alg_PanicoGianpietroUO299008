@@ -29,20 +29,20 @@ public class Vector4 {
 		int limite= 10000000;
 
 		System.out.println("n\tt");
-		for (int n = 10; n < 1000000; n *= 3) {
-			v = new int[n];
-
-			Vector1.rellena(v);
-			// Vector1.escribe (v);
-
-			t1 = System.currentTimeMillis();
-			for (int repeticiones = 0; repeticiones < limite; repeticiones++)
-				s = Vector1.suma(v);
-			t2 = System.currentTimeMillis();
-
-			System.out.println(n + "\t" + +(t2 - t1));
-
-		}
+//		for (int n = 10; n < 1000000; n *= 3) {
+//			v = new int[n];
+//
+//			Vector1.rellena(v);
+//			// Vector1.escribe (v);
+//
+//			t1 = System.currentTimeMillis();
+//			for (int repeticiones = 0; repeticiones < limite; repeticiones++)
+//				s = Vector1.suma(v);
+//			t2 = System.currentTimeMillis();
+//
+//			System.out.println(n + "\t" + +(t2 - t1));
+//
+//		}
 		
 		System.out.println();
 		System.out.println("ora il massimo ");
