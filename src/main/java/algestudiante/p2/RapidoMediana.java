@@ -37,17 +37,10 @@ public class RapidoMediana extends Vector
 	private int particion(int iz, int de) 
 	{
 		int i, pivote;
-<<<<<<< HEAD
-		intercambiar (getMediana3(iz, de, (iz+de)/2),iz);
-=======
-		intercambiar (iz,getMediana3(iz, de, (iz+de)/2));
->>>>>>> branch 'master' of https://github.com/gianpietropanico/alg_PanicoGianpietroUO299008
+		
+		intercambiar (getMediana3(iz, de, (iz+de)/2) ,iz);
 		//el pivote es el de centro y se cambia con el primero
-<<<<<<< HEAD
-		pivote= this.elements[iz];
-=======
 		pivote= this.elements[iz] ;
->>>>>>> branch 'master' of https://github.com/gianpietropanico/alg_PanicoGianpietroUO299008
 		i= iz;
 		for (int s= iz+1; s <= de; s++) 
 			if (this.elements[s] <= pivote) 
@@ -82,7 +75,7 @@ public class RapidoMediana extends Vector
 	
 	@Override
 	public String getNombre() {
-		return "Rápido pivote mediana";
+		return "Rápido pivote mediana";
 	}
 
-} 
+}
