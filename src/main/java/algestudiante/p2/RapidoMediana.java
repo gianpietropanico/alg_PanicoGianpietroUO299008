@@ -37,9 +37,9 @@ public class RapidoMediana extends Vector
 	private int particion(int iz, int de) 
 	{
 		int i, pivote;
-		intercambiar ((iz+de)/2,iz);
+		intercambiar (getMediana3(iz, de, (iz+de)/2),iz);
 		//el pivote es el de centro y se cambia con el primero
-		pivote= getMediana3(iz, de, (iz+de)/2) ;
+		pivote= this.elements[iz];
 		i= iz;
 		for (int s= iz+1; s <= de; s++) 
 			if (this.elements[s] <= pivote) 
