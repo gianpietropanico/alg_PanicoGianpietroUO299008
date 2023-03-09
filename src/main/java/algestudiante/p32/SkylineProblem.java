@@ -1,14 +1,20 @@
 package algestudiante.p32;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class SkylineProblem {
+public class SkylineProblem {	
+
+	//TODO ED PARA ALMANECAR TANTO EDIFICIO , PUNTO CLAVE
+	List<Building> listaEdificios = new ArrayList<>();
+
 	/**
 	 * Creates a solution from a text file
 	 * @param fileName the name of the file to be processed with the input data
 	 */
 	public SkylineProblem(String fileName) {
+		a1building.add(new Building(2, 3, 20));
 	}
 	
 	/**
@@ -23,6 +29,7 @@ public class SkylineProblem {
 			int right = left + 1 + new Random().nextInt(5); //should be a little bigger than left to get a valid position
 			int height = new Random().nextInt(90) + 10; //between 10 and 99 meters
 			//do something with the new randomly created building
+			listaEdificios.add(new Building(left, right, height));
 		}
 	}
 	
@@ -37,6 +44,13 @@ public class SkylineProblem {
 	 * Complexity is going to be polynomial
 	 */
 	public void solveBruteForce() {
+		//TODO resolver la obtencion de puntos clave
+		//Construir el skyline de todos los edificios 
+		//resultado = getKeyPoints(sk);
+	}
+	
+	List getKeyPointd(Skyline sk) {
+		return null;
 	}
 	
 	/**

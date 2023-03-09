@@ -13,6 +13,7 @@ public class Skyline {
 	 * @param building the only building used to create the skyline
 	 */
 	public Skyline(Building building) {
+		//TODO 
 	}
 	
 	/**
@@ -21,6 +22,7 @@ public class Skyline {
 	 * @param s2 the other of the skylines
 	 */
 	public Skyline(Skyline s1, Skyline s2) {
+		//TODO 
 	}
 	
 	/**
