@@ -46,7 +46,7 @@ public class SkylineProblem {
 	public void solveBruteForce() {
 		//TODO resolver la obtencion de puntos clave
 		//Construir el skyline de todos los edificios 
-		//resultado = getKeyPoints(sk);
+		//solucion = getKeyPoints(sk);
 	}
 	
 	List getKeyPointd(Skyline sk) {
@@ -58,6 +58,9 @@ public class SkylineProblem {
 	 * Complexity and times are going to be much better
 	 */
 	public void solveDivideAndConquer() {
+		//ordenar edificios
+		//metodo recursivo para construir skyline
+		//solucion = getKeyPoints(sk);
 	}
 	
 	/**
