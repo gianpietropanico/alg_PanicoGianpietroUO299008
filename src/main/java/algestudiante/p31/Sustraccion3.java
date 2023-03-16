@@ -1,5 +1,9 @@
 package algestudiante.p31;
 
+/*
+ * a=2, b=1, k=0 ==> caso a>1, quindi ==> O(2^n)
+ */
+
 public class Sustraccion3
 {
 
@@ -22,8 +26,10 @@ public class Sustraccion3
 	public static void main (String arg []) 
 	{
 		long t1,t2,cont;
-		int nVeces= Integer.parseInt (arg [0]);
+		//int nVeces= Integer.parseInt (arg [0]);
+		int nVeces = 1000000;
 		boolean b=true; 
+		System.out.println ("n   \tTiempo");
 		for (int n=1;n<=100;n++)
 		{
 			t1 = System.currentTimeMillis ();
@@ -35,8 +41,8 @@ public class Sustraccion3
 			} 
 
 			t2 = System.currentTimeMillis ();
-
-			System.out.println (b+" n="+n+ "**TIEMPO="+(t2-t1)+"**nVeces="+nVeces);
+			System.out.println (n+"\t"+(t2-t1));
+			//System.out.println (b+" n="+n+ "**TIEMPO="+(t2-t1)+"**nVeces="+nVeces);
 		}  // for
 	} // main
 } //class

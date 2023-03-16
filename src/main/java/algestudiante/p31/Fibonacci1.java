@@ -6,7 +6,7 @@ public class Fibonacci1 {
 	
 	//MAIN METHOD TO VERIFY PROPER OPERATION
 	public static void main (String[] arg) { 
-	  int n= Integer.parseInt(arg[0]);
+	  int n= 30;
 	    
 	  System.out.println("The Fibonacci number of order "+n+" is " + fib1(n));
 	  int[]v = new int[60];  

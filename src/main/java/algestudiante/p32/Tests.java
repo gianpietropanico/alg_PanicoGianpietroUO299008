@@ -7,7 +7,7 @@ import org.junit.Test;
 public class Tests {
 	@Test
 	public void city1BruteForce() {
-		SkylineProblem problem = new SkylineProblem("city.txt");
+		SkylineProblem problem = new SkylineProblem("C:\\Users\\panic\\git\\alg_PanicoGianpietroUO299008\\src\\main\\java\\algestudiante\\p32\\city.txt");
 		problem.solveBruteForce();
 		List<KeyPoint> output = problem.getSolution();
 		assertEquals(2, output.get(0).x); assertEquals(10, output.get(0).y);
@@ -21,7 +21,7 @@ public class Tests {
 	
 	@Test
 	public void city1DivideAndConquer() {
-		SkylineProblem problem = new SkylineProblem("city.txt");
+		SkylineProblem problem = new SkylineProblem("C:\\Users\\panic\\git\\alg_PanicoGianpietroUO299008\\src\\main\\java\\algestudiante\\p32\\city.txt");
 		problem.solveDivideAndConquer();
 		List<KeyPoint> output = problem.getSolution();
 		assertEquals(2, output.get(0).x); assertEquals(10, output.get(0).y);
@@ -35,7 +35,7 @@ public class Tests {
 	
 	@Test
 	public void city2BruteForce() {
-		SkylineProblem problem = new SkylineProblem("city2.txt");
+		SkylineProblem problem = new SkylineProblem("C:\\Users\\panic\\git\\alg_PanicoGianpietroUO299008\\src\\main\\java\\algestudiante\\p32\\city2.txt");
 		problem.solveBruteForce();
 		List<KeyPoint> output = problem.getSolution();
 		assertEquals(1, output.get(0).x); assertEquals(20, output.get(0).y);
@@ -46,7 +46,7 @@ public class Tests {
 	
 	@Test
 	public void city2DivideAndConquer() {
-		SkylineProblem problem = new SkylineProblem("city2.txt");
+		SkylineProblem problem = new SkylineProblem("C:\\Users\\panic\\git\\alg_PanicoGianpietroUO299008\\src\\main\\java\\algestudiante\\p32\\city2.txt");
 		problem.solveDivideAndConquer();
 		List<KeyPoint> output = problem.getSolution();
 		assertEquals(1, output.get(0).x); assertEquals(20, output.get(0).y);
@@ -57,7 +57,7 @@ public class Tests {
 	
 	@Test
 	public void city3BruteForce() {
-		SkylineProblem problem = new SkylineProblem("city3.txt");
+		SkylineProblem problem = new SkylineProblem("C:\\Users\\panic\\git\\alg_PanicoGianpietroUO299008\\src\\main\\java\\algestudiante\\p32\\city3.txt");
 		problem.solveBruteForce();
 		List<KeyPoint> output = problem.getSolution();
 		assertEquals(0, output.get(0).x); assertEquals(10, output.get(0).y);
@@ -68,7 +68,7 @@ public class Tests {
 	
 	@Test
 	public void city3DivideAndConquer() {
-		SkylineProblem problem = new SkylineProblem("city3.txt");
+		SkylineProblem problem = new SkylineProblem("C:\\Users\\panic\\git\\alg_PanicoGianpietroUO299008\\src\\main\\java\\algestudiante\\p32\\city2.txt");
 		problem.solveDivideAndConquer();
 		List<KeyPoint> output = problem.getSolution();
 		assertEquals(0, output.get(0).x); assertEquals(10, output.get(0).y);
@@ -79,7 +79,7 @@ public class Tests {
 	
 	@Test
 	public void city4BruteForce() {
-		SkylineProblem problem = new SkylineProblem("city4.txt");
+		SkylineProblem problem = new SkylineProblem("C:\\Users\\panic\\git\\alg_PanicoGianpietroUO299008\\src\\main\\java\\algestudiante\\p32\\city4.txt");
 		problem.solveBruteForce();
 		List<KeyPoint> output = problem.getSolution();
 		assertEquals(0, output.get(0).x); assertEquals(66, output.get(0).y);
@@ -93,7 +93,7 @@ public class Tests {
 	
 	@Test
 	public void city4DivideAndConquer() {
-		SkylineProblem problem = new SkylineProblem("city4.txt");
+		SkylineProblem problem = new SkylineProblem("C:\\Users\\panic\\git\\alg_PanicoGianpietroUO299008\\src\\main\\java\\algestudiante\\p32\\city4.txt");
 		problem.solveDivideAndConquer();
 		List<KeyPoint> output = problem.getSolution();
 		assertEquals(0, output.get(0).x); assertEquals(66, output.get(0).y);
@@ -107,7 +107,7 @@ public class Tests {
 	
 	@Test
 	public void city5BruteForce() {
-		SkylineProblem problem = new SkylineProblem("city5.txt");
+		SkylineProblem problem = new SkylineProblem("C:\\Users\\panic\\git\\alg_PanicoGianpietroUO299008\\src\\main\\java\\algestudiante\\p32\\city5.txt");
 		problem.solveBruteForce();
 		List<KeyPoint> output = problem.getSolution();
 		assertEquals(3, output.get(0).x); assertEquals(96, output.get(0).y);
@@ -130,7 +130,7 @@ public class Tests {
 	
 	@Test
 	public void city5DivideAndConquer() {
-		SkylineProblem problem = new SkylineProblem("city5.txt");
+		SkylineProblem problem = new SkylineProblem("C:\\Users\\panic\\git\\alg_PanicoGianpietroUO299008\\src\\main\\java\\algestudiante\\p32\\city5.txt");
 		problem.solveDivideAndConquer();
 		List<KeyPoint> output = problem.getSolution();
 		assertEquals(3, output.get(0).x); assertEquals(96, output.get(0).y);

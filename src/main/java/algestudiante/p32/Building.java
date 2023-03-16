@@ -14,4 +14,9 @@ public class Building implements Comparable<Building> {
 	public int compareTo(Building otherBuilding) {
 		return this.right - otherBuilding.right;
 	}
+	
+	@Override
+	public String toString ( ) {
+		return "leftX: "+left + " rightX " + right + " heightY: " + height;
+	}
 }
