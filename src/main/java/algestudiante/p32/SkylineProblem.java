@@ -22,12 +22,10 @@ public class SkylineProblem {
 	 */
 	public SkylineProblem(String fileName) {
 		
-		
-		
 		int left = 0 ; 
 		int right = 0 ;
 		int height = 0;
-		//boolean flag = false;
+
 		
 		try( Scanner input = new Scanner(new File (fileName))) {
 			
@@ -36,39 +34,25 @@ public class SkylineProblem {
             	
             	if( j == 0 ) {
             		left = input.nextInt();
-            		//System.out.println("Left " +left);
+            		j++;
             		
             	}else if ( j == 1 ) {
             		right = input.nextInt();
-            		//System.out.println("Right " +right);
+            		j++;
+ 
             	}
             	
             	
-            	if ( j == 2 /*&& !flag*/) {
+            	if ( j == 2) {
             		height = input.nextInt();
-            		
-            		//System.out.println("Height " + height);
-            		
-            		//System.out.println("!flag x1 =  " + left + " x2 = " + right +" y = "+ height);
-            		//skyline = new Skyline(new Building(left, right , height));
-            		
             		
             		listBuildings.add(new Building(left, right , height));
-            		
-            		//flag = true;
-            		j = -1 ;
+          
+            		j = 0 ;
             	}	
-            	/*}else if( j == 2 && flag ) {
-            		height = input.nextInt();
-            		//System.out.println("Height " +height);
-            		//System.out.println("flag x1 =  " + left + " x2 = " + right +" y = "+ height);
-            		//skyline = new Skyline(skyline , new Skyline ( new Building ( left, right , height ) ));
-            		//flag = false;
-            		j = -1 ;
-            				
-            	}*/
+   
             	
-            	j++;
+            	
 
             }
             
@@ -112,9 +96,9 @@ public class SkylineProblem {
 	 */
 	public void solveBruteForce() {
 		boolean flag = false ;
-		
+
 		for ( Building building : listBuildings) {
-			//System.out.println(building);
+			
 			
 			if( !flag ) {skyline = new Skyline( building ); flag = true;}
 			else skyline = new Skyline ( skyline , new Skyline( building ));
@@ -130,11 +114,26 @@ public class SkylineProblem {
 		
 		Collections.sort( listBuildings );
 		
-		skyline = buildSkyline( listBuildings);
+		//skyline = buildSkyline( listBuildings);
 		
+		skyline = buildSkyline(listBuildings, 0, listBuildings.size() - 1, 0);
 	
 	}
+	
+	private Skyline buildSkyline(List<Building> buildings, int start, int end, int level) {
+	    if (end == start) {
+	        return new Skyline(buildings.get(start));
+	    }
+	    if (/*level >= 1000 || */end < start) {
+	        return null;
+	    }
+	    int mid = start + (end - start) / 2;
+	    Skyline left = buildSkyline(buildings, start, mid, level + 1);
+	    Skyline right = buildSkyline(buildings, mid + 1, end, level + 1);
+	    return new Skyline(left, right);
+	}
 
+	/*
 	private Skyline buildSkyline(List<Building> buildings) {
 		
 	    if (buildings.size() == 1) {
@@ -147,13 +146,21 @@ public class SkylineProblem {
 	    Skyline leftSkyline = buildSkyline(leftBuildings);
 	    Skyline rightSkyline = buildSkyline(rightBuildings);
 	    return new Skyline(leftSkyline, rightSkyline);
-	}
+	}*/
 	
 	/**
 	 * Prints the final solution (the key points for the generated skyline)
 	 */
 	public void printSolution() {
-		skyline.printHeights();
+
+		List<KeyPoint> solution = getSolution();
+		
+		for( KeyPoint keypoint : solution ) {
+			System.out.println(keypoint.x + " "+ keypoint.y);
+		}
+		
+		System.out.println();
+		System.out.println();
 	}
 	
 	/**
@@ -163,18 +170,24 @@ public class SkylineProblem {
 	public List<KeyPoint> getSolution() {
 		List<KeyPoint> solution = new ArrayList<KeyPoint>();
 		
-		for(int i = skyline.getLeftSide() ; i <= skyline.getRightSide(); i++ ) {
-			//System.out.printf("x =%3d y =%3d  \n",i  , this.heightInPosition.get(i));
-			if( i != skyline.getRightSide() && skyline.getHeightInPosition(i) != 0  ) {
-				solution.add(new KeyPoint(i,skyline.getHeightInPosition(i) ));
+		int lastHeight = -1 ; 
+		
+		for( int i = skyline.getLeftSide() ; i < skyline.getRightSide() ; i++) {
+			//System.out.println(skyline.getHeightInPosition(i));
+			
+			if(lastHeight != skyline.getHeightInPosition(i)) {
 				
-				
-				
-			}else if ( i == skyline.getRightSide() && skyline.getHeightInPosition(i) == 0) {
-				solution.add(new KeyPoint(i,skyline.getHeightInPosition(i) ));
+				lastHeight = skyline.getHeightInPosition(i);
+				solution.add( new KeyPoint(i,lastHeight));
 			}
+			
+			
 		}
+		
+		solution.add( new KeyPoint(skyline.getRightSide(),0));
 		
 		return solution;
 	}
+	
+
 }

@@ -68,7 +68,7 @@ public class Tests {
 	
 	@Test
 	public void city3DivideAndConquer() {
-		SkylineProblem problem = new SkylineProblem("C:\\Users\\panic\\git\\alg_PanicoGianpietroUO299008\\src\\main\\java\\algestudiante\\p32\\city2.txt");
+		SkylineProblem problem = new SkylineProblem("C:\\Users\\panic\\git\\alg_PanicoGianpietroUO299008\\src\\main\\java\\algestudiante\\p32\\city3.txt");
 		problem.solveDivideAndConquer();
 		List<KeyPoint> output = problem.getSolution();
 		assertEquals(0, output.get(0).x); assertEquals(10, output.get(0).y);
