@@ -12,7 +12,7 @@ public class IslandsPathTest {
 
 	@Test
 	public void test1() {
-		IslandsPath problem = new IslandsPath("src/main/java/algestudente/s5/islas01.txt");
+		IslandsPath problem = new IslandsPath("C:\\Users\\panic\\git\\alg_PanicoGianpietroUO299008\\src\\main\\java\\algestudiante\\p5\\islas01.txt");
 		executeFromFile(problem);
 		ArrayList<String> paths = problem.getPaths();
 		assertEquals("0 -> 1", paths.get(0));
@@ -25,7 +25,7 @@ public class IslandsPathTest {
 	
 	@Test
 	public void test2() {
-		IslandsPath problem = new IslandsPath("src/main/java/algestudente/s5/islas02.txt");
+		IslandsPath problem = new IslandsPath("C:\\Users\\panic\\git\\alg_PanicoGianpietroUO299008\\src\\main\\java\\algestudiante\\p5\\islas02.txt");
 		executeFromFile(problem);
 		ArrayList<String> paths = problem.getPaths();
 		assertEquals("0 -> 3 -> 1", paths.get(0));
@@ -44,7 +44,7 @@ public class IslandsPathTest {
 	
 	@Test
 	public void test3() {
-		IslandsPath problem = new IslandsPath("src/main/java/algestudente/s5/islas03.txt");
+		IslandsPath problem = new IslandsPath("C:\\Users\\panic\\git\\alg_PanicoGianpietroUO299008\\src\\main\\java\\algestudiante\\p5\\islas03.txt");
 		executeFromFile(problem);
 		ArrayList<String> paths = problem.getPaths();
 		assertEquals("0 -> 2 -> 4 -> 1", paths.get(0));
@@ -76,7 +76,7 @@ public class IslandsPathTest {
 	
 	@Test
 	public void test4() {
-		IslandsPath problem = new IslandsPath("src/main/java/algestudente/s5/islas04.txt");
+		IslandsPath problem = new IslandsPath("C:\\Users\\panic\\git\\alg_PanicoGianpietroUO299008\\src\\main\\java\\algestudiante\\p5\\islas04.txt");
 		executeFromFile(problem);
 		ArrayList<String> paths = problem.getPaths();
 		assertEquals("0 -> 4 -> 1", paths.get(0));
@@ -103,7 +103,7 @@ public class IslandsPathTest {
 	
 	@Test
 	public void test5() {
-		IslandsPath problem = new IslandsPath("src/main/java/algestudente/s5/islas05.txt");
+		IslandsPath problem = new IslandsPath("C:\\Users\\panic\\git\\alg_PanicoGianpietroUO299008\\src\\main\\java\\algestudiante\\p5\\islas05.txt");
 		executeFromFile(problem);
 		ArrayList<String> paths = problem.getPaths();
 		assertEquals("0 -> 1", paths.get(0));

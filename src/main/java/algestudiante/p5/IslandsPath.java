@@ -19,7 +19,32 @@ public class IslandsPath {
 	private int[][] C; // COST MATRIX: stores the maximum width
 	private int[][] P; // PATH MATRIX: stores the best path
 	private ArrayList<String> paths; // to store the different solutions
-	private String camino = "";
+
+	public IslandsPath(int n) {
+		paths = new ArrayList<String>();
+		numIslands = n;
+
+		W = new int[n][n];
+		C = new int[n][n];
+		P = new int[n][n];
+
+		for (int i = 0; i < numIslands; i++) {
+			for (int j = 0; j < numIslands; j++) {
+				W[i][j] = ran(2, 10);
+
+			}
+		}
+		for (int i = 0; i < numIslands; i++) {
+			for (int j = 0; j < numIslands; j++) {
+				C[i][j] = W[i][j];
+				P[i][j] = MIN_INF;
+			}
+		}
+	}
+
+	private int ran(int min, int max) {
+		return ((int) (Math.random() * max) + min);
+	}
 
 	/**
 	 * Create the arrays of the graph and initialize them It also created the arrays
@@ -100,23 +125,19 @@ public class IslandsPath {
 	 * Calculates the maximum width path between islands (nodes) (Analogous to
 	 * Floyd, changing the conditions for the best way)
 	 */
-	public void calculateMaximumWidths() { //O(n^3)
+	public void calculateMaximumWidths() { // O(n^3)
 
-		for (int k = 0; k < numIslands; k++) {
+		int k, i, j;
+		for (k = 0; k < numIslands; k++)
+			for (i = 0; i < numIslands; i++)
+				for (j = 0; j < numIslands; j++) {
 
-			for (int i = 0; i < numIslands; i++) {
-
-				for (int j = 0; j < numIslands; j++) {
-
-					if (C[i][j] < Math.min(C[i][k], C[k][j])) {
-						C[i][j] = Math.max(C[i][j], Math.min(C[i][k], C[k][j]));
-						P[i][j] = C[i][j];
+					if (Math.min(C[i][k], C[k][j]) > C[i][j]) {
+						C[i][j] = Math.min(C[i][k], C[k][j]);
+						P[i][j] = k;
 					}
 
 				}
-			}
-		}
-
 	}
 
 	/****** Methods for printing final and intermediate data *************/
@@ -162,40 +183,45 @@ public class IslandsPath {
 	public void generatePaths() {
 		// scorre P per ottenere il cammino tra i e y
 
-		
+		String unCamino = "";
+
 		for (int i = 0; i < numIslands; i++)
-			for (int j = 0; j < numIslands; j++) 
-				if(i!=j)
-			{
-				camino=getCamino(i,j);
-				paths.add(camino);
+			for (int j = 0; j < numIslands; j++) {
+				if (i != j && C[i][j] != MIN_INF) {
+					unCamino = i + getCamino(i, j) + j;
+					paths.add(unCamino);
+				}
 			}
+
 	}
 
 	private String getCamino(int i, int j) {
-		return null;
+		if (P[i][j] == MIN_INF)
+			return " -> ";
+		else
+			return getCamino(i, P[i][j]) + P[i][j] + getCamino(P[i][j], j);
 	}
-	
-	static String  {
-		
-		if(M[i][j]>=1000000)
-			System.out.println("No hay camino");
-		else {
-			camino.append(i+"---");
-			trayectoria(i, j);
-			camino.append(j);
-		}
-	}
-		
-	
-	static void trayectoria(int i,int j) {
-		int c=p[i][j];
-		if(c>=0) {
-			trayectoria(i,c,camino);
-			camino.append(c+"---");
-			trayectoria(c, j,camino);
-		}
-	}
+
+//	static String  {
+//		
+//		if(M[i][j]>=1000000)
+//			System.out.println("No hay camino");
+//		else {
+//			camino.append(i+"---");
+//			trayectoria(i, j);
+//			camino.append(j);
+//		}
+//	}
+
+//	
+//	static void trayectoria(int i,int j) {
+//		int c=p[i][j];
+//		if(c>=0) {
+//			trayectoria(i,c,camino);
+//			camino.append(c+"---");
+//			trayectoria(c, j,camino);
+//		}
+//	}
 
 	public ArrayList<String> getPaths() {
 		return paths;
