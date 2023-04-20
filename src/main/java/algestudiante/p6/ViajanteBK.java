@@ -32,26 +32,7 @@ public class ViajanteBK {
 	    Arrays.fill(path, -1);
 	    
 	}
-	/*
-	public void dioporco() {
-	boolean[] visited = new boolean[grafoCaminos.length];
-	int[] path = new int[visited.length];
-	Arrays.fill(path, -1);
-
-	int start = 0;
-	int distance = 0;
-	dfs(grafoCaminos, start, visited, path, distance, start);
-
-	// Calcola la distanza totale del percorso minimo
-	int totalDistance = 0;
-	for (int i = 1; i < path.length; i++) {
-	    int node1 = path[i-1];
-	    int node2 = path[i];
-	    totalDistance += grafoCaminos[node1][node2];
-	}
-	System.out.println("Percorso minimo: " + Arrays.toString(path));
-	System.out.println("Distanza totale del percorso minimo: " + totalDistance);
-	}*/
+	
 	public void calcularCiclo(int origen) {
 		
 		
@@ -117,20 +98,7 @@ public class ViajanteBK {
 	    distance--;
 	}
 
-	/*
-	public static void main(String[] args) {
-	    int[][] grafoCaminos = {{0, 10, 20, 14},
-	                            {11, 0, 19, 12},
-	                            {13, 18, 0, 20},
-	                            {12, 14, 11, 0}};
-	    int n = grafoCaminos.length;
-	    boolean[] visited = new boolean[n];
-	    int[] path = new int[n];
-	    int distance = 0;
-	    int start = 0;
-	    int totalDistance = 0;
-	    findPath(grafoCaminos, start, visited, path, distance, start, totalDistance);
-	}*/
+	
 	
 
 
