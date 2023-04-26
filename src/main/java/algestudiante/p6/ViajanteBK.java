@@ -5,101 +5,115 @@ import java.util.Arrays;
 
 public class ViajanteBK {
 
-	private int [][] graph;
-	private int numNodi; 
-	private ArrayList<Integer> mejorDistancia;
-	private ArrayList<Integer> mejorSolucion;
-	private int distance;
+
+    private int[][] grafoCaminos;
+    private boolean[] visitados;
+    private int[] solucionActual;
+    private int[] mejorSolucion;
+    private int mejorDistancia;
+    private int distanciaActual;
+    private int origen;
 	
-    boolean[] visited;
-    int[] path;
-	
-	
-	public ViajanteBK ( int [][] grafosCaminos ) {
-		this.graph = grafosCaminos;
-		
-		this.distance = 0 ;
-		this.numNodi = grafosCaminos.length;
-		/*
-	    visited = new boolean[numNodi];
-	    distanze = new int[numNodi];
-	    Arrays.fill(distanze, Integer.MAX_VALUE);
-	    */
-	    visited = new boolean[grafosCaminos.length];
-	    
-	    path = new int[visited.length];
-	    
-	    Arrays.fill(path, -1);
-	    
+    public ViajanteBK(int[][] grafoCaminos) {
+        this.grafoCaminos = grafoCaminos;
+        this.visitados = new boolean[grafoCaminos.length];
+        this.solucionActual = new int[grafoCaminos.length];
+        this.mejorSolucion = new int[grafoCaminos.length];
+        this.mejorDistancia = Integer.MAX_VALUE;
+        this.origen = 0;
+    }
+    
+    public ViajanteBK (int n ) {
+    	
+    	this.grafoCaminos  =  new int [n][n];
+    	
+    	for (int i = 0; i < n; i++) {
+    	    for (int j = 0; j < n; j++) {
+    	        if (i == j) {
+    	            grafoCaminos[i][j] = 0;
+    	        } else {
+    	            grafoCaminos[i][j] = ran(10,99);
+    	        }
+    	    }
+    	}
+
+        this.visitados = new boolean[grafoCaminos.length];
+        this.solucionActual = new int[grafoCaminos.length];
+        this.mejorSolucion = new int[grafoCaminos.length];
+        this.mejorDistancia = Integer.MAX_VALUE;
+        this.origen = 0;
+    }
+
+	private int ran(int min , int max ) {
+		return ((int) (Math.random()*max)+min);
 	}
 	
-	public void calcularCiclo(int origen) {
-		
-		
-		//visitaGrafoRicorsivo(grafo, origen, visitati, distanze);
-		
-		//distanza = visitaGrafo(grafo, origen);
-		//visitaGrafo(int[][] grafo, int nodoIniziale)
-		
-		//visitaGrafo(int[][] grafo, int nodoIniziale, boolean[] visitato, int distanza)
-		
-		//findPath(graph, origen, visited, path, distance, origen);
-		
-	}
-	
-	public int getDistanza ( ) {
-		int totalDistance = 0;
-		
-		for (int i = 0; i < path.length; i++) {
-			System.out.println(i + " " + path[i]);
-			
-			
-			
-			/*
-			if( i + 1 > path.length )
-				totalDistance += graph[path[i]][path[i+1]];
+    public void calcularCiclo(int origen) {
+        this.origen = origen;
+        this.distanciaActual = 0;
+        for (int i = 0; i < visitados.length; i++) {
+            visitados[i] = false;
+        }
+        visitados[origen] = true;
+        solucionActual[0] = origen;
+        calcularCicloRecursivo(1);
+        
+        addOrigenNode ( );
+    }
+
+    private void addOrigenNode() {
+    	
+    	int n = mejorSolucion.length+1;
+    
+    	
+		int[] arraycopy = new int [n];
+		for( int i = 0 ; i < n; i++ ) {
+			if(i != n-1)
+				arraycopy[i] = mejorSolucion[i];
 			else
-				totalDistance += graph[path[i]][path[i]];
-*/
+				arraycopy[i] = origen;
 		}
-		
-		return totalDistance;
-	}
-	
-	public int [] getDistanze ( ) {
-		return path;
-	}
 
-	
-	public static void findPath(int[][] graph, int node, boolean[] visited, int[] path, int distance, int start, int totalDistance) {
-	    visited[node] = true; // marcare il nodo come visitato
-	    path[distance] = node; // aggiungere il nodo al percorso
-	    distance++; // incrementare la distanza percorsa
-	    
-	    // Se abbiamo visitato tutti i nodi e siamo tornati al nodo di partenza
-	    if (distance == visited.length && node == start) {
-	        // Stampa il percorso trovato con la distanza totale
-	        for (int i = 0; i < path.length; i++) {
-	            System.out.print(path[i] + " ");
-	        }
-	        System.out.println(" - Distanza totale: " + totalDistance);
-	    }
-	    
-	    // Altrimenti, continuare la ricerca nei nodi adiacenti non ancora visitati
-	    for (int i = 0; i < graph[node].length; i++) {
-	        if (graph[node][i] != 0 && !visited[i]) { // se c'è un arco e il nodo non è ancora stato visitato
-	        	findPath(graph, i, visited, path, distance, start, totalDistance + graph[node][i]); // ricerca ricorsiva
-	        }
-	    }
-	    
-	    // Ripristinare lo stato del nodo
-	    visited[node] = false;
-	    path[distance - 1] = -1;
-	    distance--;
+    	this.mejorSolucion = new int[arraycopy.length];
+
+    	System.arraycopy(arraycopy, 0, mejorSolucion, 0, arraycopy.length);
+    	
+    	
 	}
 
-	
-	
+	private void calcularCicloRecursivo(int nivel) {
+        if (nivel == grafoCaminos.length) {
+            int distancia = grafoCaminos[solucionActual[nivel - 1]][origen];
+            if (distancia != 0) {
+                distanciaActual += distancia;
+                if (distanciaActual < mejorDistancia) {
+                    mejorDistancia = distanciaActual;
+                    System.arraycopy(solucionActual, 0, mejorSolucion, 0, solucionActual.length);
+                }
+                distanciaActual -= distancia;
+            }
+        } else {
+            for (int i = 0; i < visitados.length; i++) {
+                if (!visitados[i] && grafoCaminos[solucionActual[nivel - 1]][i] != 0) {
+                    visitados[i] = true;
+                    solucionActual[nivel] = i;
+                    distanciaActual += grafoCaminos[solucionActual[nivel - 1]][i];
+                    calcularCicloRecursivo(nivel + 1);
+                    distanciaActual -= grafoCaminos[solucionActual[nivel - 1]][i];
+                    visitados[i] = false;
+                }
+            }
+        }
+    }
 
+    public int getMejorDistancia() {
+        return mejorDistancia;
+    }
 
+    public int[] getMejorSolucion() {
+    	
+        return mejorSolucion;
+    }
 }
+
+
