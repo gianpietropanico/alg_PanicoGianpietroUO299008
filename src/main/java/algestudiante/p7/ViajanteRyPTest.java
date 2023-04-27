@@ -2,6 +2,8 @@ package algestudiante.p7;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Test;
 
 public class ViajanteRyPTest {
@@ -73,4 +75,42 @@ public class ViajanteRyPTest {
 		assertEquals(mejorSol.getHeuristico(), distanciaOptima);
 		assertArrayEquals(mejorSol.getSolucion(), solucion);
 	}
+	
+	@Test
+	public void testInicial() {
+		int[][] grafoCaminos=  {{0, 10, 20, 14 },
+								{11, 0, 19, 12 },
+								{13, 18, 0, 20 },
+								{12, 14, 11, 0 }};
+		int origen= 0;
+		int[] solucion= {0, 1, 3, 2, 0};
+		int distanciaOptima= 46;
+		
+		EstadoViajante ini= new EstadoViajante(grafoCaminos);
+		System.out.println("Estado inicial");
+		System.out.println(ini);
+		
+		ArrayList<Estado> hijos = ini.expandir();
+		System.out.println(hijos);
+		assert(true);
+}
+	
+	@Test
+	public void testRamificacion() {
+		int[][] grafoCaminos=  {{0, 10, 20, 14 },
+								{11, 0, 19, 12 },
+								{13, 18, 0, 20 },
+								{12, 14, 11, 0 }};
+		int origen= 0;
+				
+		EstadoViajante ini= new EstadoViajante(grafoCaminos);
+		System.out.println("Estado inicial");
+		System.out.println(ini);
+		assertEquals(ini.getHeuristico(),46);
+		
+		ArrayList<Estado> hijos = ini.expandir();
+		System.out.println(hijos.get(0));
+		assertEquals(hijos.get(0).getHeuristico(),46);
+}
+	
 }
