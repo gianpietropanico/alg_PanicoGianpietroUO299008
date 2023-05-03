@@ -41,6 +41,8 @@ class ViajanteRyP extends RamificaYPoda {
 		if (RamificaYPoda.TRAZA)
 			problemaViajante.mostrarTrazaSolucion();
 	}
+	
+	
 
 	/**
 	 * Constructor crea el estaod inicial para iniciar el problema

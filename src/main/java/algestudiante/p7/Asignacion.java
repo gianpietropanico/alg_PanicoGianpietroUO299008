@@ -25,6 +25,7 @@ class Asignacion extends RamificaYPoda
 		// Soluci�n final
 		System.out.println("Solucion optima del problema $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
 		System.out.println(problemaAsigna.mejorSolucion);
+		
 
 		if (RamificaYPoda.TRAZA)
 			problemaAsigna.mostrarTrazaSolucion(); 

@@ -10,6 +10,8 @@ import algestudiante.p7.RamificaYPoda;
  * Estado Viajante
  * Hereda de la clase Estado
  */
+
+
 public class EstadoViajante extends Estado 
 {
 	// Datos comunes a todos los estados, por eso los declaramos "static"
@@ -32,12 +34,59 @@ public class EstadoViajante extends Estado
 		// matriz de costes
 		
 		this.caminos = caminos;
-		
+		/*
 		caminos[0][0]=58;caminos[0][1]=67;caminos[0][2]=58;caminos[0][3]=65;
 		caminos[1][0]=60;caminos[1][1]=68;caminos[1][2]=65;caminos[1][3]=55;
 		caminos[2][0]=62;caminos[2][1]=70;caminos[2][2]=67;caminos[2][3]=56;
 		caminos[3][0]=56;caminos[3][1]=68;caminos[3][2]=60;caminos[3][3]=54; 
+*/
+		/**/if (RamificaYPoda.TRAZA)
+			imprimirCostes();
 
+		// Inicializa variables de cada estado
+		solParcial = new int[n];
+		for (int i=0;i<solParcial.length;i++)
+			solParcial[i] = -1;//sin asignaciones inicialmente
+		
+		visitadas=new boolean[solParcial.length];
+		
+		//aggiungere del codice per lo stato iniziale
+		//aggiungere lo 0 
+		
+		solParcial[profundidad] = 0;
+		visitadas[0] = true;
+		profundidad++;
+	}
+	private int ran(int min , int max ) {
+		return ((int) (Math.random()*max)+min);
+	}
+	
+	public EstadoViajante(int n) {
+		super();
+		
+		// Condiciones iniciales
+			// n�mero de agentes y tareas
+		// matriz de costes
+		
+		
+		int [][] caminos =   new int [n][n];
+    	
+    	for (int i = 0; i < n; i++) {
+    	    for (int j = 0; j < n; j++) {
+    	        if (i == j) {
+    	        	caminos[i][j] = 0;
+    	        } else {
+    	        	caminos[i][j] = ran(10,99);
+    	        }
+    	    }
+    	}
+		this.caminos = caminos;
+		/*
+		caminos[0][0]=58;caminos[0][1]=67;caminos[0][2]=58;caminos[0][3]=65;
+		caminos[1][0]=60;caminos[1][1]=68;caminos[1][2]=65;caminos[1][3]=55;
+		caminos[2][0]=62;caminos[2][1]=70;caminos[2][2]=67;caminos[2][3]=56;
+		caminos[3][0]=56;caminos[3][1]=68;caminos[3][2]=60;caminos[3][3]=54; 
+*/
 		/**/if (RamificaYPoda.TRAZA)
 			imprimirCostes();
 
@@ -53,6 +102,7 @@ public class EstadoViajante extends Estado
 		solParcial[profundidad] = 0;
 		visitadas[0] = true;
 		profundidad++;
+		//calcularValorHeuristico();
 	}
 
 	/**
@@ -95,6 +145,44 @@ public class EstadoViajante extends Estado
 	@Override
 	public void calcularValorHeuristico() {
 		valorHeuristico = 0;
+		
+		int []  minVal  = new int [caminos.length];
+
+			
+					
+		
+		for (int i =0 ; i < minVal.length ; i++ )
+			minVal[i] = Integer.MAX_VALUE;
+		
+		for( int i = 0 ; i < caminos.length; i++ ) 
+			for ( int j = 0 ; j < caminos.length; j++ ) 
+				if( minVal[i] >= caminos[i][j] && i != j) {
+					minVal[i] = caminos[i][j];
+					//System.out.print(minVal[i]+" ");
+				}
+		
+
+		
+		for( int i = 0 ; i < caminos.length; i++ ) 
+			for ( int j = 0 ; j < caminos.length; j++ ) 
+					caminos[i][j] -= minVal[i];
+		
+		for (int i =0 ; i < minVal.length ; i++ ) {
+			valorHeuristico += minVal[i];
+			minVal[i] = Integer.MAX_VALUE;
+		}
+		
+			
+		for( int i = 0 ; i < caminos.length; i++ ) 
+			for ( int j = 0 ; j < caminos.length; j++ )
+					if( minVal[i] >= caminos[j][i] && i != j)
+					minVal[i] = caminos[j][i];
+		
+		for (int i =0 ; i < minVal.length ; i++ ) 
+			valorHeuristico += minVal[i];
+		
+		super.valorHeuristico = valorHeuristico;
+		
 		
 //		// Suma los costes de los agentes con tarea
 //		for (int i= 0; i<profundidad; i++)
