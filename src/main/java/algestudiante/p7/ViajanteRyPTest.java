@@ -44,7 +44,7 @@ public class ViajanteRyPTest {
 		
 		assert(true);
 	}
-	/*
+	
 	
 	
 	@Test
@@ -113,5 +113,5 @@ public class ViajanteRyPTest {
 		EstadoViajante mejorSol= (EstadoViajante)viajante.getMejorSolucion();
 		assertEquals(mejorSol.getHeuristico(), distanciaOptima);
 		assertArrayEquals(mejorSol.getSolucion(), solucion);
-	}*/
+	}
 }
